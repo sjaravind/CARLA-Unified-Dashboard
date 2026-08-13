@@ -333,7 +333,7 @@ class CarlaManager:
         if self.connected:
             self.world.set_weather(self.WEATHER[self.weather_name()])
 
-    # ── Traffic ───────────────────────────────────────────────────────
+    # ── Traffic ─────────────────────────────────────────────────────
     def spawn_traffic(self, n=20):
         if not self.connected: return
         bplib = self.world.get_blueprint_library()
@@ -352,7 +352,7 @@ class CarlaManager:
             except: pass
         self.npcs=[]; self.num_vehicles=0; self.num_pedestrians=0
 
-    # ── Cleanup ───────────────────────────────────────────────────────
+    # ── Cleanup ─────────────────────────────────────────────────────
     def cleanup(self):
         for a in [self.lane_sensor, self.col_sensor, self.camera, self.vehicle] + self.npcs:
             try:
@@ -751,7 +751,6 @@ def _angle_diff(a, b):
     d = (a - b) % 360.0
     if d > 180.0: d -= 360.0
     return d
-
 
 # Keep old name as alias so ComparisonAnalyser still works
 AICorrector = WaypointFollower
@@ -1210,7 +1209,7 @@ class UnifiedDashboard:
             self.ai_lane_drifts += 1
             self.carla.lane_flag = False
 
-        # ── WaypointFollower tick (every frame, 60fps) ──────────────
+        # ── WaypointFollower tick (every frame, 60fps) ─────────────
         t, b, s, done, csv_row = self.corrector.tick(vehicle_loc, vehicle_yaw, spd)
 
         if done:
@@ -1225,7 +1224,7 @@ class UnifiedDashboard:
         self.ai_throttle, self.ai_brake, self.ai_steer = t, b, s
         self.carla.apply_control(t, s, b)
 
-        # ── ML risk prediction every 4 frames ──────────────────────
+        # ── ML risk prediction every 4 frames ─────────────────────
         if frame % 4 == 0 and self.model.trained:
             # Pass live NPC count (not CSV-recorded count) for real-time awareness
             live_npcs = self.carla.num_vehicles

@@ -1,0 +1,39 @@
+# Byte-compiled / logs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtualenv / build / packaging
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+build/
+dist/
+*.egg
+*.egg-info/
+.eggs/
+*.whl
+
+# Python cache and packaging
+*.egg-info/
+
+# CARLA / Unreal / distribution artifacts
+*.pkl
+*.uasset
+*.umap
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+
+# Environment
+.env
+
+# Ignore Windows editor backup files
+*~
